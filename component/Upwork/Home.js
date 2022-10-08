@@ -10,8 +10,8 @@ import axios from "axios";
 import SuccessAnimation from "../UI/SuccessAnimation";
 
 
-const searchPages = 1;
-
+const searchPages = 2;
+const API_URL = "http://4.240.104.120:8000/"
 const HomeUpwork = () => {
     const [loadingState, setLoadingState] = useState(null)
     const [searchKey, setSearchKey] = useState("")
@@ -39,7 +39,7 @@ const HomeUpwork = () => {
         setUpworkData([])
         setStatusReport(Array(5+searchPages).fill(false))
         setLoadingState(true)
-        axios.post(`http://127.0.0.1:8000/upwork/start-scraping?search_key=${searchKey.trim()}&search_pages=${1}`)
+        axios.post(`${API_URL}upwork/start-scraping?search_key=${searchKey.trim()}&search_pages=${1}`)
             .then(res => {
                 return res.data
             })
@@ -57,7 +57,7 @@ const HomeUpwork = () => {
     }
 
     const ifDataAvailableOnDatabase = (str_uuid)=>{
-        axios.get(`http://127.0.0.1:8000/upwork/status?str_uuid=${str_uuid}`)
+        axios.get(`${API_URL}upwork/status?str_uuid=${str_uuid}`)
             .then(res=>{
                 return res.data
             })
@@ -116,7 +116,7 @@ const HomeUpwork = () => {
 
     const getUpworkData = (str_uuid) => {
         // console.log("Requesting Data")
-        axios.get(`http://127.0.0.1:8000/upwork/get-data?str_uuid=${str_uuid}`)
+        axios.get(`${API_URL}upwork/get-data?str_uuid=${str_uuid}`)
             .then(res => {
                 return res.data
             })
