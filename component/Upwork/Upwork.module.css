@@ -1,0 +1,20 @@
+
+.upwork-container{
+    position: relative;
+    top:5rem;
+}
+
+.search-container {
+    left: 0.50rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.search-icon{
+    width: 15px
+}
+
+

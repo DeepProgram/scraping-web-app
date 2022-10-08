@@ -1,0 +1,104 @@
+@keyframes thanks {
+  from {
+    transform: translate3d(0, -3rem, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes success-icon-animation {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.25);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.success-block {
+  display: flex;
+  align-items: center;
+}
+.success-block .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.success-block .title > span {
+  display: inline-block;
+  opacity: 1;
+  transition: transform 0.3s, opacity 0.3s;
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  animation: thanks 0.3s forwards;
+  margin: 0 -1px;
+}
+.success-block .title > span:nth-child(1) {
+  animation-delay: 0.045s;
+}
+.success-block .title > span:nth-child(2) {
+  animation-delay: 0.09s;
+}
+.success-block .title > span:nth-child(3) {
+  animation-delay: 0.135s;
+}
+.success-block .title > span:nth-child(4) {
+  animation-delay: 0.18s;
+}
+.success-block .title > span:nth-child(5) {
+  animation-delay: 0.225s;
+}
+.success-block .title > span:nth-child(6) {
+  animation-delay: 0.27s;
+}
+.success-block .title > span:nth-child(7) {
+  animation-delay: 0.315s;
+}
+.success-block .title > span:nth-child(8) {
+  animation-delay: 0.36s;
+}
+.success-block .title > span:nth-child(9) {
+  animation-delay: 0.405s;
+}
+.success-block .title > span:nth-child(10) {
+  animation-delay: 0.45s;
+}
+.success-block .title > span:nth-child(11) {
+  animation-delay: 0.5s;
+}
+.success-block .title > span:nth-child(12) {
+  animation-delay: 0.5s;
+}
+.success-block .title > span:nth-child(13) {
+  animation-delay: 0.5s;
+}
+.success-block .title > span:nth-child(14) {
+  animation-delay: 0.5s;
+}
+.success-block .title:hover .title > span {
+  animation: thanks 0.35s forwards;
+}
+.success-block .success-icon {
+  margin-right: 1rem;
+  width: 4rem;
+  height: 4rem;
+  color: #93c461;
+  opacity: 0;
+  margin-left: -2rem;
+  animation: success-icon-animation 1s 0.25s forwards;
+}
+
+.completion-container {
+  margin-top: 1.3rem;
+  display: flex;
+  min-height: 2rem;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}

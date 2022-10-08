@@ -1,0 +1,22 @@
+
+.root-container {
+    --dark: #1B252B;
+    --dark-blue: #8fa8b4;
+    --blue: #00BBE3;
+    --transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fcfcfc;
+    position: relative;
+    left: 15%;
+}
+
+
+.container {
+    margin: 5.5rem 0;
+    background-color: var(--dark-blue);
+    border-radius: 1rem;
+    left: 15%;
+    right: 15%;
+    width: 70vw;
+    height: 1rem;
+    position: absolute;
+}
