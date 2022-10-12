@@ -11,7 +11,7 @@ import SuccessAnimation from "../UI/SuccessAnimation";
 
 
 const searchPages = 2;
-const API_URL = "http://4.240.104.120:8000/"
+const API_URL = "http://20.193.147.4:8000/"
 const HomeUpwork = () => {
     const [loadingState, setLoadingState] = useState(null)
     const [searchKey, setSearchKey] = useState("")
@@ -38,7 +38,7 @@ const HomeUpwork = () => {
         setShowSuccessMessage(false)
         setUpworkData([])
         setStatusReport(Array(5+searchPages).fill(false))
-        setLoadingState(true)
+        setLoadingState(false)
         axios.post(`${API_URL}upwork/start-scraping?search_key=${searchKey.trim()}&search_pages=${1}`)
             .then(res => {
                 return res.data
@@ -48,6 +48,7 @@ const HomeUpwork = () => {
                     prevState[0] = true
                     return prevState
                 })
+                setLoadingState(true)
                 ifDataAvailableOnDatabase(data["feedback"]["uuid"])
                 // ifDataAvailableOnDatabase("417deb55-0a42-43cf-aaaf-7db043839c42")
             })
@@ -64,6 +65,7 @@ const HomeUpwork = () => {
             .then(data=>{
                 delay = 2000;
                 if (data["status_message"] === "completed"){
+                    setShowSuccessMessage(true)
                     setStatusReport(prevState => {
                         const newData = [...prevState]
                         newData[statusReport.length-1] = true
