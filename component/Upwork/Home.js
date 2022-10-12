@@ -39,7 +39,7 @@ const HomeUpwork = () => {
         setUpworkData([])
         setStatusReport(Array(5+searchPages).fill(false))
         setLoadingState(false)
-        axios.post(`${API_URL}upwork/start-scraping?search_key=${searchKey.trim()}&search_pages=${1}`)
+        axios.post(`${API_URL}upwork/start-scraping?search_key=${searchKey.trim()}&search_pages=${searchPages}`)
             .then(res => {
                 return res.data
             })
