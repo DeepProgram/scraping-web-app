@@ -11,7 +11,7 @@ import SuccessAnimation from "../UI/SuccessAnimation";
 
 
 const searchPages = 2;
-const API_URL = "http://20.193.147.4:8000/"
+const API_URL = "http://20.193.147.43:8000/"
 const HomeUpwork = () => {
     const [loadingState, setLoadingState] = useState(null)
     const [searchKey, setSearchKey] = useState("")
