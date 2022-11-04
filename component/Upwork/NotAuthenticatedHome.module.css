@@ -1,0 +1,45 @@
+.container {
+    position: relative;
+    top: 5rem;
+}
+
+.popular-box {
+    position: relative;
+    left: 10%;
+    width: 80%;
+    /*background: black;*/
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.popular-box:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.h1 {
+    color: #e5126f;
+    /*background: black;*/
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 0.4rem 0 0 0;
+    cursor: default;
+}
+
+.item-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+}
+
+.item {
+    /*display: inline-block;*/
+    padding: 0.5rem 1rem;
+    color: blue;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.item:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

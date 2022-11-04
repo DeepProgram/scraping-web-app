@@ -7,8 +7,8 @@ const MainHeader = () => {
             <ul className={classes.ul}>
                 <Link href="/"><li className={classes.logo}></li></Link>
                 <li className={classes.lists}>
-                    <div className={classes["list-item"]}>Signup</div>
-                    <div className={classes["list-item"]}>Login</div>
+                    <Link href="/signup"><div className={classes["list-item"]}>Signup</div></Link>
+                    <Link href="/login"><div className={classes["list-item"]}>Login</div></Link>
                 </li>
             </ul>
         </nav>

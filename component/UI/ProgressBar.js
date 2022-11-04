@@ -1,9 +1,5 @@
 import classes from "./ProgressBar.module.css"
-import {useEffect} from "react";
 import styled from 'styled-components'
-import {keyframes} from "styled-components";
-import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
-
 
 const Container = styled.div`
     margin: ${props => props.containerMarginTop || 5}rem 0 0 0;

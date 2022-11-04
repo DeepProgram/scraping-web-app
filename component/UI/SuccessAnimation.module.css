@@ -90,15 +90,17 @@
   height: 4rem;
   color: #93c461;
   opacity: 0;
-  margin-left: -2rem;
+  /*margin-left: -2rem;*/
   animation: success-icon-animation 1s 0.25s forwards;
 }
 
 .completion-container {
-  margin-top: 1.3rem;
+  position: relative;
+  top: 2rem;
   display: flex;
   min-height: 2rem;
-  width: 100vw;
+  /*width: 100vw;*/
   align-items: center;
+  align-content: center;
   justify-content: center;
 }

@@ -1,0 +1,154 @@
+
+.signup-container{
+    top: 4.5rem;
+    position: relative;
+    display: flex;
+    background-color: hsl(0, 100%, 74%);
+  box-shadow: 0 8px 0px rgba(0 0 0/0.15);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.hero__title {
+  padding: 1rem;
+  font-size: 2.75rem;
+}
+.hero__desc {
+    max-width: 75ch;
+  }
+
+.sign-up {
+  width: 100%;
+}
+
+.sign-up__desc {
+  padding: 1rem 5rem;
+  margin-bottom: 1.75rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 0px rgba(0 0 0/0.15);
+  background-color: hsl(248, 32%, 49%);
+  text-align: center;
+}
+
+.sign-up__desc span {
+  font-weight: bold;
+}
+
+.sign-up__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 0px rgba(0 0 0/0.15);
+  color: hsl(246, 25%, 77%);
+  background-color: white;
+}
+
+.form__input {
+  width: 100%;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.form__input span {
+  position: absolute;
+  top: 22%;
+  right: 2ch;
+  padding: 0 0.65em;
+  border-radius: 50%;
+  background-color: hsl(0, 100%, 74%);
+  color: white;
+  display: none;
+}
+
+.form__input.warning span {
+  display: inline-block;
+}
+
+.form__input input {
+  width: 100%;
+  padding: 1em;
+  border: 2px solid hsla(246, 25%, 77%, 0.25);
+  border-radius: 0.5em;
+  font-weight: 600;
+  color: hsl(249, 10%, 26%);
+  background-color: white;
+}
+
+.form__input input:focus {
+  outline: none;
+  border: 2px solid hsla(246, 25%, 77%, 1);
+}
+
+.form__input.warning input {
+  border: 2px solid hsl(0, 100%, 74%);
+}
+
+.form__input p {
+  margin: 0.2em 0.75em 0 0;
+  display: none;
+  font-size: 0.75rem;
+  text-align: right;
+  font-style: italic;
+  color: hsl(0, 100%, 74%);
+}
+
+.form__input.warning p {
+  display: block;
+}
+
+.submit-btn {
+  cursor: pointer;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid hsl(154, 59%, 51%);
+  border-bottom: 5px solid hsl(154, 59%, 47%);
+  border-radius: 0.5em;
+  background-color: hsl(154, 59%, 51%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2ch;
+}
+
+.submit-btn:hover {
+  background-color: hsl(154, 59%, 60%);
+  border-bottom: 5px solid hsl(154, 59%, 55%);
+}
+
+.form__terms {
+  max-width: 35ch;
+  margin-bottom: 0.75em;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.form__terms span {
+  font-weight: 700;
+  color: hsl(0, 100%, 74%);
+}
+
+.email-used-modal{
+  left: 1%;
+  position: fixed;
+  z-index: 10;
+  background-color: #6422EB;
+  border-radius: 10px;
+}
+.email-used-modal__title{
+  font-size: 1.1rem;
+  padding: 0.2rem 1.1rem;
+  transition: ease-in-out 3s;
+}
+
+
