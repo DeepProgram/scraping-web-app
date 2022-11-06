@@ -5,6 +5,9 @@ import {useEffect} from "react";
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {login} from "../store/authenticated";
+
+const API_URL = "http://20.197.51.102/"
+
 export default function HomePage() {
 
   const dispatch = useDispatch()
@@ -12,7 +15,7 @@ export default function HomePage() {
   useEffect(()=>{
     const token = localStorage.getItem("token")
     if (!token) return
-    axios.get("login/token", {
+    axios.get(`${API_URL}login/token`, {
       headers: {Authorization: `Bearer ${token}`}
     }).then(response=>{
       return response.data
