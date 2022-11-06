@@ -1,10 +1,10 @@
 import HomeUpwork from "../../component/Upwork/Home";
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import NotAuthenticatedHome from "../../component/Upwork/NotAuthenticatedHome";
 import axios from "axios";
 import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
-import {logout} from "../../store/authenticated";
+import {login, logout} from "../../store/authenticated";
 import SuccessAnimation from "../../component/UI/SuccessAnimation";
 import LoggingAnimation from "../../component/UI/LoggingAnimation";
 
@@ -14,6 +14,26 @@ const UpworkHomePage = (props)=>{
     const [showLoggingOutMessage, setShowLoggingOutMessage] = useState(false)
     const {isAuthenticated} = useSelector(state => state.authenticatedSlice)
     const dispatch = useDispatch()
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if (!token) return
+    axios.get(`${API_URL}login/token`, {
+      headers: {Authorization: `Bearer ${token}`}
+    }).then(response=>{
+      return response.data
+    }).then(data=>{
+      if (data["status_message"] === "user_validated"){
+        dispatch(login({
+          "token": token,
+          "firstname": data["first_name"]
+        }))
+      }
+    }).catch(err=>{
+      console.log("Index Page Error")
+    })
+  },[dispatch])
+
     const loggingOutHandler = ()=>{
         setShowLightSaverAnimation(true)
         const timeoutId = setTimeout(()=>{
