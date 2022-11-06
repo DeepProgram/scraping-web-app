@@ -26,6 +26,7 @@ const LoginHome = () => {
             return response.data
         }).then(data => {
             if (data["code"] === 1) {
+                localStorage.setItem("token", data["token"])
                 setLoginInAnimation(true)
                 setTimeout(() => {
                     setLoginInMessageAnimation(true)
