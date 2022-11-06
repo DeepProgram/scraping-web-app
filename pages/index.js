@@ -26,6 +26,8 @@ export default function HomePage() {
           "firstname": data["first_name"]
         }))
       }
+    }).catch(err=>{
+      console.log("Index Page Error")
     })
   },[dispatch])
 
