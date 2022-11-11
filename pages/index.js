@@ -1,37 +1,25 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import Home from "../component/Home/Home";
-import {useEffect} from "react";
-import axios from "axios";
-import {useDispatch} from "react-redux";
-import {login} from "../store/authenticated";
+import {Fragment, useEffect} from "react";
+import {useSelector} from "react-redux";
+import useLoginWithToken from "../component/CustomHooks/useLoginWithToken";
+
 
 const API_URL = "http://20.197.51.102/"
 
 export default function HomePage() {
+    const {gotApiResponse, loginWithToken} = useLoginWithToken()
+    const {isAuthenticated} = useSelector(state => state.authenticatedSlice)
 
-  const dispatch = useDispatch()
+    useEffect(() => {
+        if (!isAuthenticated) {
+            loginWithToken()
+        }
+    }, [])
 
-  useEffect(()=>{
-    const token = localStorage.getItem("token")
-    if (!token) return
-    axios.get(`${API_URL}login/token`, {
-      headers: {Authorization: `Bearer ${token}`}
-    }).then(response=>{
-      return response.data
-    }).then(data=>{
-      if (data["status_message"] === "user_validated"){
-        dispatch(login({
-          "token": token,
-          "firstname": data["first_name"]
-        }))
-      }
-    }).catch(err=>{
-      console.log("Index Page Error")
-    })
-  },[dispatch])
 
-  return (
-    <Home></Home>
-  )
+    return (
+        <Fragment>
+            {(gotApiResponse || isAuthenticated) && <Home></Home>}
+        </Fragment>
+    )
 }

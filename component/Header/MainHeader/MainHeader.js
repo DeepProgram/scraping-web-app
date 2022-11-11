@@ -5,10 +5,16 @@ const MainHeader = () => {
     return (
         <nav className={classes["nav-container"]}>
             <ul className={classes.ul}>
-                <Link href="/"><li className={classes.logo}></li></Link>
+                <Link href="/">
+                    <li className={classes.logo}></li>
+                </Link>
                 <li className={classes.lists}>
-                    <Link href="/signup"><div className={classes["list-item"]}>Signup</div></Link>
-                    <Link href="/login"><div className={classes["list-item"]}>Login</div></Link>
+                    <Link href="/signup">
+                        <div className={classes["list-item"]}>Signup</div>
+                    </Link>
+                    <Link href="/login">
+                        <div className={classes["list-item"]}>Login</div>
+                    </Link>
                 </li>
             </ul>
         </nav>

@@ -1,44 +1,29 @@
-import {Fragment, useState} from "react";
+import {Fragment} from "react";
 import classes from "./Home.module.css"
 import MainHeader from "../Header/MainHeader/MainHeader";
 import LoggedInHeader from "../Header/LoggedInHeader/LoggedInHeader";
 import Product from "./Product";
 import SuccessAnimation from "../UI/SuccessAnimation";
 import LoggingAnimation from "../UI/LoggingAnimation";
-
-import {useDispatch, useSelector} from "react-redux";
-import {logout} from "../../store/authenticated";
+import {useSelector} from "react-redux";
+import useLogOut from "../CustomHooks/useLogOut";
 
 const Home = () => {
-    const [showLightSaverAnimation, setShowLightSaverAnimation] = useState(false)
-    const [showLoggingOutMessage, setShowLoggingOutMessage] = useState(false)
     const {isAuthenticated} = useSelector(state => state.authenticatedSlice)
-
-    const dispatch = useDispatch()
-
-    const loggingOutHandler = ()=>{
-        setShowLightSaverAnimation(true)
-        const timeoutId = setTimeout(()=>{
-            setTimeout(()=>{
-                setShowLoggingOutMessage(true)
-            },1000)
-            setTimeout(()=>{
-                setShowLightSaverAnimation(false)
-                setShowLoggingOutMessage(false)
-                dispatch(logout())
-            },2000)
-        },1000)
+    const {showLightSaverAnimation, showLoggingOutMessage, initializeLogout} = useLogOut()
+    const loggingOutHandler = () => {
+        initializeLogout()
     }
 
     return (
         <Fragment>
             {showLoggingOutMessage && <SuccessAnimation>
                 <span>L</span><span>O</span><span>G</span><span>G</span><span>I</span><span>N</span><span>G</span>
-                    &nbsp;
-                    <span>O</span><span>U</span><span>T</span>
+                &nbsp;
+                <span>O</span><span>U</span><span>T</span>
             </SuccessAnimation>}
             {showLightSaverAnimation && <LoggingAnimation/>}
-            { !showLightSaverAnimation &&
+            {!showLightSaverAnimation &&
                 <div className={classes.container}>
                     {isAuthenticated && <LoggedInHeader loggingOutHandler={loggingOutHandler}/>}
                     {!isAuthenticated && <MainHeader></MainHeader>}

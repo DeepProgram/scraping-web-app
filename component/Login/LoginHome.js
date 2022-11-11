@@ -49,9 +49,9 @@ const LoginHome = () => {
 
             } else {
                 setEmailPassDoesntMatch(true)
-                setTimeout(()=>{
+                setTimeout(() => {
                     setEmailPassDoesntMatch(false)
-                },2000)
+                }, 2000)
             }
         })
     }
@@ -68,7 +68,7 @@ const LoginHome = () => {
             {!loginInAnimation && <MainHeader/>}
             {!loginInAnimation &&
                 <Fragment>
-                    { emailPassDoesntMatch &&
+                    {emailPassDoesntMatch &&
                         <div className={classes["email-used-modal"]}>
                             <div className={classes["email-used-modal__title"]}>Email & Password Doesn&apos;t Match
                             </div>

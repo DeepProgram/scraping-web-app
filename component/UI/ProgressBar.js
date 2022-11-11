@@ -103,11 +103,11 @@ const IndexStep = styled.div`
 `
 
 const positionMessage = ["Scraping Request Submitted", "Scraping Program Started", "Automation Tool Opened",
-                            "Page Loaded"]
+    "Page Loaded"]
 
 const ProgressBar = (props) => {
     let statusList = props.status
-    const completionPos = statusList.reduce((total,conditionValue) => total+(conditionValue===true), 0)-1;
+    const completionPos = statusList.reduce((total, conditionValue) => total + (conditionValue === true), 0) - 1;
     const barBlueCount = completionPos
     const toolTipPosition = completionPos;
 
@@ -131,10 +131,10 @@ const ProgressBar = (props) => {
 
     return (
         <div className={classes["root-container"]}>
-            <Container containerMarginTop={props.status[statusList.length-1] === true && "1.9"}>
+            <Container containerMarginTop={props.status[statusList.length - 1] === true && "1.9"}>
                 <TooltipContainer toolTipPosition={((100 / (statusList.length - 1)) * (toolTipPosition))}>
-                    <Tooltip displayTooltip={props.status[statusList.length-1] === true && "none"}>
-                        {(completionPos <= 3)?positionMessage[completionPos]: `Page ${completionPos-3} Scraped`}
+                    <Tooltip displayTooltip={props.status[statusList.length - 1] === true && "none"}>
+                        {(completionPos <= 3) ? positionMessage[completionPos] : `Page ${completionPos - 3} Scraped`}
                         <TooltipIndicator></TooltipIndicator>
                     </Tooltip>
                 </TooltipContainer>

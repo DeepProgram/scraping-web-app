@@ -3,7 +3,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Fragment, useState} from "react";
 import ProgressBar from "../UI/ProgressBar";
-
 import DataTable from "./DataTable";
 import axios from "axios";
 import SuccessAnimation from "../UI/SuccessAnimation";
@@ -49,9 +48,8 @@ const HomeUpwork = (props) => {
                 if (data["search_result"]) {
                     setUpworkData(data["search_result"])
                     setShowSuccessMessage(true)
-                }
-                else {
-                    if (token){
+                } else {
+                    if (token) {
                         refreshButtonHandler()
                     }
                 }
@@ -85,8 +83,8 @@ const HomeUpwork = (props) => {
 
     const ifDataAvailableOnDatabase = () => {
         axios.get(`${API_URL}upwork/status`, {
-                headers: {Authorization: `Bearer ${token}`}
-            })
+            headers: {Authorization: `Bearer ${token}`}
+        })
             .then(res => {
                 return res.data
             })
@@ -168,10 +166,9 @@ const HomeUpwork = (props) => {
                         <div className={"input-group"}>
                             <div className={"form-outline"}>
                                 <input type="search" id="form1"
-                                       className={`${"form-control"}`} onChange={inputHandler} value={searchKey}/>
+                                       className={`form-control`} onChange={inputHandler} value={searchKey}/>
                             </div>
-                            <button type="button" className={`${"btn"} ${"btn-primary"}`}
-                                    onClick={searchButtonHandler}>
+                            <button type="button" className={`btn btn-primary`} onClick={searchButtonHandler}>
                                 <FontAwesomeIcon icon={faSearch} className={classes["search-icon"]}/>
                             </button>
                             {showSuccessMessage &&

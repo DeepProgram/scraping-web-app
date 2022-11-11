@@ -1,7 +1,7 @@
-import MainHeader from "../../component/Header/MainHeader/MainHeader";
 import SignupHome from "../../component/Signup/SignupHome";
 import {Fragment} from "react";
-const SignupIndexPage = ()=>{
+
+const SignupIndexPage = () => {
     return (
         <Fragment>
             <SignupHome/>
