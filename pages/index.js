@@ -14,7 +14,9 @@ export default function HomePage() {
         if (!isAuthenticated) {
             loginWithToken()
         }
-    }, [])
+    }, [isAuthenticated, loginWithToken])
+
+
 
 
     return (

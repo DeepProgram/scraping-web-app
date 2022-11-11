@@ -1,14 +1,12 @@
 import HomeUpwork from "../../component/Upwork/Home";
-import {Fragment, useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {Fragment, useEffect} from "react";
+import {useSelector} from "react-redux";
 import NotAuthenticatedHome from "../../component/Upwork/NotAuthenticatedHome";
 import axios from "axios";
 import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
-import {login, logout} from "../../store/authenticated";
 import SuccessAnimation from "../../component/UI/SuccessAnimation";
 import LoggingAnimation from "../../component/UI/LoggingAnimation";
 import useLogOut from "../../component/CustomHooks/useLogOut";
-import {useRouter} from "next/router";
 import useLoginWithToken from "../../component/CustomHooks/useLoginWithToken";
 
 const API_URL = "http://20.197.51.102/"
@@ -23,8 +21,7 @@ const UpworkHomePage = (props) => {
     useEffect(() => {
         loginWithToken()
 
-    }, [])
-
+    }, [loginWithToken])
 
     return (
         <Fragment>

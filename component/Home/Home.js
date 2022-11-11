@@ -11,22 +11,17 @@ import useLogOut from "../CustomHooks/useLogOut";
 const Home = () => {
     const {isAuthenticated} = useSelector(state => state.authenticatedSlice)
     const {showLightSaverAnimation, showLoggingOutMessage, initializeLogout} = useLogOut()
+
     const loggingOutHandler = () => {
         initializeLogout()
     }
 
     return (
         <Fragment>
-            {showLoggingOutMessage && <SuccessAnimation>
-                <span>L</span><span>O</span><span>G</span><span>G</span><span>I</span><span>N</span><span>G</span>
-                &nbsp;
-                <span>O</span><span>U</span><span>T</span>
-            </SuccessAnimation>}
-            {showLightSaverAnimation && <LoggingAnimation/>}
             {!showLightSaverAnimation &&
                 <div className={classes.container}>
                     {isAuthenticated && <LoggedInHeader loggingOutHandler={loggingOutHandler}/>}
-                    {!isAuthenticated && <MainHeader></MainHeader>}
+                    {(!isAuthenticated) && <MainHeader></MainHeader>}
                     <div className={classes["container-img"]}>
                     </div>
                     <div className={classes.body}>
@@ -73,6 +68,12 @@ const Home = () => {
                     </div>
                 </div>
             }
+            {showLoggingOutMessage && <SuccessAnimation>
+                <span>L</span><span>O</span><span>G</span><span>G</span><span>I</span><span>N</span><span>G</span>
+                &nbsp;
+                <span>O</span><span>U</span><span>T</span>
+            </SuccessAnimation>}
+            {showLightSaverAnimation && <LoggingAnimation/>}
 
         </Fragment>
     )

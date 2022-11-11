@@ -9,7 +9,7 @@ const useLoginWithToken = () => {
     const [gotApiResponse, setGotApiResponse] = useState(false)
     const dispatch = useDispatch()
 
-    const loginWithToken = async () => {
+    const loginWithToken = () => {
         const token = localStorage.getItem("token")
         if (!token) {
             setGotApiResponse(true)

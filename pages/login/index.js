@@ -9,10 +9,10 @@ const LoginIndex = (props) => {
     const {gotApiResponse, loginWithToken} = useLoginWithToken()
     const {isAuthenticated} = useSelector(state => state.authenticatedSlice)
     const router = useRouter()
+
     useEffect(() => {
         loginWithToken()
-
-    }, [])
+    }, [loginWithToken])
 
     useEffect(() => {
         if (gotApiResponse && isAuthenticated) {
